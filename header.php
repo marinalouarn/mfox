@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'm-fox' ); ?></a>
+	
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
@@ -45,13 +45,20 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'm-fox' ); ?></button>
+			<ul>
 			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
+
+$items = wp_get_nav_menu_items('menu-1'); //replace menu_name with menu-name, menu-id, menu-slug (menu-location is not valid!)
+foreach((array) $items as $key => $item) {
+	$taxonomy = $item->object;
+	$term_id = $item->object_id;
+	$url = $item->url;
+	$title = $item->title;
+	$image_url= get_field( 'icon', $item ); //replace "icoon" with the fieldname you give to the image
+	echo '<li><a href="'.$url.'" title="'.$title.'"><img src="'.$image_url.'" /></a></li>'; //replace large with size you wish
+}
 			?>
+		</ul>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
