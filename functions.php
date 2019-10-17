@@ -42,6 +42,7 @@ if ( ! function_exists( 'm_fox_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'm-fox' ),
@@ -65,11 +66,21 @@ if ( ! function_exists( 'm_fox_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 
+
+
 	}
 endif;
 add_action( 'after_setup_theme', 'm_fox_setup' );
 
+function be_menu_item_classes( $classes, $item, $args ) {
 
+	if( ( is_singular( 'post' ) || is_category() || is_tag() ) && 'Blog' == $item->title )
+		$classes[] = 'current-menu-item';
+
+		
+	return array_unique( $classes );
+}
+add_filter( 'nav_menu_css_class', 'be_menu_item_classes', 10, 3 );
 
 
 /**

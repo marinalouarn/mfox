@@ -1,0 +1,13 @@
+.page-header{
+	border:solid 2px red;
+	border-radius:30px;
+	min-height:calc(100vh - 15vw);
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	>div{
+
+		width:50%;
+	}
+}

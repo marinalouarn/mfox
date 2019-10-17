@@ -1,5 +1,9 @@
 <?php
 /**
+
+CECI est la page qui liste tout les articles toutes catégories confonduent... cette page n'est pas visible sur le site mfox.
+
+
  * The main template file
  *
  * This is the most generic template file in a WordPress theme

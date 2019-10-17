@@ -1,0 +1,30 @@
+body{
+	background:$background;
+	color:$color;
+	font-size:22px;
+	@include font();
+	#page{}
+}
+*{
+	margin:0;
+	padding:0;
+	outline:none;
+	box-sizing:border-box;
+}
+a{
+	color:$accent;
+	text-decoration: none;
+}
+p{
+	margin:1em 0;
+}
+blockquote{
+	width:80%;
+	margin:0 auto;
+	font-size:1.2em;
+}
+#content{
+	width:85%;
+	//max-width:1024px;
+	margin:0 auto;
+}

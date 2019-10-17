@@ -1,4 +1,191 @@
-body{
-	background:#000;
-	color:#FFF;
+body {
+  background: #000;
+  color: #FFF;
+  font-size: 22px;
+  font-family: "Josefin Slab", serif;
 }
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+p {
+  margin: 1em 0;
+}
+
+blockquote {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+#content {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/**/
+#site-navigation ul {
+  list-style: none;
+}
+#site-navigation ul li {
+  position: fixed;
+  z-index: 1000;
+  width: 7.5vw;
+  height: 7.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px #222;
+}
+#site-navigation ul li.current img {
+  border: solid 5px #FFF;
+}
+#site-navigation ul li img {
+  padding: 10px;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  background: #333;
+}
+#site-navigation ul li:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+#site-navigation ul li:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+#site-navigation ul li:nth-child(3) {
+  bottom: 0;
+  right: 0;
+}
+#site-navigation ul li:nth-child(4) {
+  bottom: 0;
+  left: 0;
+}
+
+#border-nav ul {
+  list-style: none;
+}
+#border-nav ul li {
+  position: fixed;
+  height: 100vh;
+  width: 7.5vw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+#border-nav ul li button {
+  background: transparent;
+  border: none;
+  color: #FFF;
+  font-family: "Josefin Slab", serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#border-nav ul li.left {
+  left: 0;
+  transform: rotate(-90deg);
+}
+#border-nav ul li.right {
+  transform: rotate(90deg);
+  right: 0;
+}
+
+#site-branding {
+  height: 7.5vw;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#site-branding a {
+  background: transparent;
+  border: none;
+  color: #FFF;
+  font-family: "Josefin Slab", serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 1em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.page-header {
+  border: solid 2px red;
+  border-radius: 30px;
+  min-height: calc(100vh - 15vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.page-header > div {
+  width: 50%;
+}
+
+.grid-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20vw;
+}
+.grid-items article.item {
+  width: 50%;
+  height: 40vw;
+  border: solid 1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /**/
+  margin: 0 0 0;
+}
+.grid-items article.item:nth-child(odd) {
+  margin: -20vw 0 0;
+}
+.grid-items article.item header {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  z-index: 100;
+  position: absolute;
+}
+.grid-items article.item header h2 {
+  width: 100%;
+  text-align: center;
+}
+.grid-items article.item .thumbnail {
+  width: 25vw;
+  height: 25vw;
+  overflow: hidden;
+  transform: rotate(45deg);
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grid-items article.item .thumbnail img {
+  position: absolute;
+  transform: rotate(-45deg);
+  width: 150%;
+  height: auto;
+}
+
+/*# sourceMappingURL=style.css.map */
