@@ -1,6 +1,6 @@
 body {
-  background: #000;
-  color: #FFF;
+  background: #141321;
+  color: #fff;
   font-size: 22px;
   font-family: "Josefin Slab", serif;
 }
@@ -12,7 +12,7 @@ body {
 }
 
 a {
-  color: #FFF;
+  color: #fad88e;
   text-decoration: none;
 }
 
@@ -45,31 +45,43 @@ blockquote {
   align-items: center;
   border: solid 1px #222;
 }
-#site-navigation ul li.current img {
-  border: solid 5px #FFF;
+#site-navigation ul li.current a {
+  border: solid 6px #7d79cc;
 }
-#site-navigation ul li img {
+#site-navigation ul li a {
+  line-height: 0;
   padding: 10px;
   width: 5vw;
   height: 5vw;
   border-radius: 50%;
-  background: #333;
+  background: #141321;
+  transition: all 0.3s;
+  border: solid 2px transparent;
+}
+#site-navigation ul li a:hover {
+  width: 5vw;
+  height: 5vw;
+  border: solid 2px #fad88e;
+}
+#site-navigation ul li img {
+  width: 100%;
+  height: auto;
 }
 #site-navigation ul li:nth-child(1) {
-  top: 0;
-  left: 0;
+  top: 1vw;
+  left: 1vw;
 }
 #site-navigation ul li:nth-child(2) {
-  top: 0;
-  right: 0;
+  top: 1vw;
+  right: 1vw;
 }
 #site-navigation ul li:nth-child(3) {
-  bottom: 0;
-  right: 0;
+  bottom: 1vw;
+  right: 1vw;
 }
 #site-navigation ul li:nth-child(4) {
-  bottom: 0;
-  left: 0;
+  bottom: 1vw;
+  left: 1vw;
 }
 
 #border-nav ul {
@@ -88,7 +100,7 @@ blockquote {
 #border-nav ul li button {
   background: transparent;
   border: none;
-  color: #FFF;
+  color: #fad88e;
   font-family: "Josefin Slab", serif;
   text-transform: uppercase;
   font-weight: bold;
@@ -117,7 +129,7 @@ blockquote {
 #site-branding a {
   background: transparent;
   border: none;
-  color: #FFF;
+  color: #fad88e;
   font-family: "Josefin Slab", serif;
   text-transform: uppercase;
   font-weight: bold;
@@ -128,7 +140,7 @@ blockquote {
 }
 
 .page-header {
-  border: solid 2px red;
+  border: solid 2px #fad88e;
   border-radius: 30px;
   min-height: calc(100vh - 15vw);
   display: flex;
@@ -148,7 +160,6 @@ blockquote {
 .grid-items article.item {
   width: 50%;
   height: 40vw;
-  border: solid 1px;
   position: relative;
   display: flex;
   align-items: center;

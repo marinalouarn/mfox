@@ -38,34 +38,26 @@
 			</ul>
 		</nav>
 
-
 		<nav id="site-navigation" class="main-navigation">
 			<ul>
-			<?php
 
-$items = wp_get_nav_menu_items('menu-1'); //replace menu_name with menu-name, menu-id, menu-slug (menu-location is not valid!)
+<?php $items = wp_get_nav_menu_items('menu-1');
 foreach((array) $items as $key => $item) {
-	
 	if( is_singular('post') ){
 		$postId = $_POST['postid'];
-		$currentCategory = get_the_category($postId);  // the value is recieved properly
-$current = ( $currentCategory[0]->term_id == $item->object_id ) ? 'current' : ''; // the value is assigned properly
-
+		$currentCategory = get_the_category($postId);
+		$current = ( $currentCategory[0]->term_id == $item->object_id ) ? 'current' : ''; 
 	} else{
 		$current = ( $item->object_id == get_queried_object_id() ) ? 'current' : '';		
 	}
-	
-	$postcat = get_the_category( $post->ID );
-
 	$taxonomy = $item->object;
 	$term_id = $item->object_id;
 	$url = $item->url;
 	$title = $item->title;
-	$image_url= get_field( 'icon', $item ); //replace "icoon" with the fieldname you give to the image
-	echo '<li class="' . $current . '"><a href="'.$url.'" title="'.$title.'"><img src="'.$image_url.'" /></a></li>'; //replace large with size you wish
-}
-			?>
-		</ul>
+	$image_url= get_field( 'icon', $item ); 
+	echo '<li class="' . $current . '"><a href="'.$url.'" title="'.$title.'"><img src="'.$image_url.'" /></a></li>'; 
+} ?>
+			</ul>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

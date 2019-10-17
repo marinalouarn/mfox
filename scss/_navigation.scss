@@ -4,7 +4,7 @@ $Height: 7.5vw;
 @mixin text-border-nav(){
 	background:transparent;
 	border:none;
-	color:$accent;
+	color:$accentA;
 	@include font();
 	text-transform: uppercase;
 	font-weight:bold;
@@ -27,31 +27,43 @@ $Height: 7.5vw;
 		align-items:center;
 		border:solid 1px #222;
 		&.current{
-			img{
-				border:solid 5px #FFF;}
+			a{
+				border:solid 6px $accentB;}
 		}
-		img{
+		a{
+			line-height:0;
 			padding:10px;
 			width:5vw;
 			height:5vw;
 			border-radius:50%;
-			background:#333;
+			background:$background;
+			transition:all .3s;
+			border:solid 2px transparent;
+			&:hover{ 
+				width:5vw;
+				height:5vw;
+				border:solid 2px $accentA;
+			}
+		}
+		img{
+			width:100%;
+			height:auto;
 		 }
 		 &:nth-child(1){
-		 	top:0;
-		 	left:0;
+		 	top:1vw;
+		 	left:1vw;
 		 }
 		 &:nth-child(2){
-		 	top:0;
-		 	right:0;
+		 	top:1vw;
+		 	right:1vw;
 		 }
 		 &:nth-child(3){
-		 	bottom:0;
-		 	right:0;
+		 	bottom:1vw;
+		 	right:1vw;
 		 }
 		 &:nth-child(4){
-		 	bottom:0;
-		 	left:0;
+		 	bottom:1vw;
+		 	left:1vw;
 		 }
 
 		}
