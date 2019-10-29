@@ -8,15 +8,15 @@
  *
  * @package M-FOX
  */
-
+ 
 ?>
 
 	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer">
-		
-	</footer><!-- #colophon -->
 </div><!-- #page -->
+
+<footer id="site-footer">
+	<?php get_sidebar(); ?>
+</footer>
 
 <?php wp_footer(); ?>
 

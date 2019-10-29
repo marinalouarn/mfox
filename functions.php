@@ -42,6 +42,7 @@ if ( ! function_exists( 'm_fox_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		add_post_type_support( 'page', 'excerpt' );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -105,9 +106,16 @@ add_action( 'widgets_init', 'm_fox_widgets_init' );
  * Enqueue scripts and styles.
  */
 function m_fox_scripts() {
-	$js_directory = get_template_directory_uri() . '/js/';
+	
 
-	wp_enqueue_style( 'm-fox-style', get_stylesheet_uri() );
+	$theme = wp_get_theme();
+	$ver = $theme->get( 'Version' );
+	$themecsspath = get_stylesheet_directory() . '/style.css';
+	$style_ver = filemtime( $themecsspath );
+	wp_enqueue_style( 'm-fox-style', get_stylesheet_uri(),array(),$style_ver );
+
+
+	$js_directory = get_template_directory_uri() . '/js/';
 
 	wp_register_script( 'index', $js_directory . 'index.js');
 	wp_register_script( 'custom-jquery', $js_directory . 'jquery.js');
@@ -117,6 +125,14 @@ function m_fox_scripts() {
 	
 }
 add_action( 'wp_enqueue_scripts', 'm_fox_scripts' );
+
+
+
+function smartwp_remove_wp_block_library_css(){
+ wp_dequeue_style( 'wp-block-library' );
+} 
+add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css' );
+
 
 
 

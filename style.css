@@ -23,19 +23,27 @@ p {
 blockquote {
   width: 80%;
   margin: 0 auto;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: lighter;
 }
 
 #content {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
 }
 
 /**/
 #site-navigation ul {
+  clear: both;
   list-style: none;
 }
 #site-navigation ul li {
+  counter-increment: chap;
   position: fixed;
   z-index: 1000;
   width: 7.5vw;
@@ -43,10 +51,15 @@ blockquote {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px #222;
 }
 #site-navigation ul li.current a {
-  border: solid 6px #7d79cc;
+  border: solid 2px #7d79cc;
+}
+#site-navigation ul li.current a img {
+  opacity: 0;
+}
+#site-navigation ul li.current a:after {
+  color: #7d79cc;
 }
 #site-navigation ul li a {
   line-height: 0;
@@ -56,14 +69,34 @@ blockquote {
   border-radius: 50%;
   background: #141321;
   transition: all 0.3s;
-  border: solid 2px transparent;
+  border: solid 2px #fad88e;
+  position: relative;
+}
+#site-navigation ul li a:after {
+  font-weight: bold;
+  color: #fad88e;
+  content: "Ch. " counter(chap);
+  line-height: 1.5em;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #site-navigation ul li a:hover {
   width: 5vw;
   height: 5vw;
-  border: solid 2px #fad88e;
+  border: solid 2px #7d79cc;
 }
-#site-navigation ul li img {
+#site-navigation ul li a:hover img {
+  opacity: 0.3;
+}
+#site-navigation ul li a img {
+  display: none;
   width: 100%;
   height: auto;
 }
@@ -125,6 +158,8 @@ blockquote {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  z-index: 100;
 }
 #site-branding a {
   background: transparent;
@@ -140,24 +175,135 @@ blockquote {
 }
 
 .page-header {
-  border: solid 2px #fad88e;
-  border-radius: 30px;
-  min-height: calc(100vh - 15vw);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  width: 100%;
+  position: relative;
+  /**/
+  background-size: cover;
+  background-repeat: no-repeat;
+  /**/
+}
+.page-header:after {
+  content: "";
+  position: fixed;
+  width: 86%;
+  height: 75%;
+  border: solid 1px #fad88e;
+  border-radius: 40px;
+  z-index: 1;
+  transition: all 1s;
 }
 .page-header > div {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.page-header > div > img {
   width: 50%;
+}
+.page-header > div > div {
+  width: 50%;
+}
+.page-header.scroll > * {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  filter: blur(0px);
+  transition: opacity 2s, filter 1s;
+}
+.page-header.outScroll > * {
+  filter: blur(20px);
+  opacity: 0;
+}
+.page-header p {
+  font-size: 1.2em;
+}
+
+.entry-content {
+  width: 80%;
+  margin: 0 auto;
+  /* Section deux colonnes*/
+  /* Citation */
+}
+.entry-content > .scroll > * {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  filter: blur(0px);
+  transition: opacity 2s, filter 1s;
+}
+.entry-content > .outScroll > * {
+  filter: blur(20px);
+  opacity: 0;
+}
+.entry-content > .wp-block-columns {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.entry-content > .wp-block-quote {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.entry-content > .wp-block-quote > * {
+  width: 50%;
+}
+.entry-content .wp-block-media-text {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.entry-content .wp-block-media-text .wp-block-media-text__media {
+  width: 40%;
+  left: 10%;
+}
+.entry-content .wp-block-media-text .wp-block-media-text__media img {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+.entry-content .wp-block-media-text .wp-block-media-text__content {
+  left: 50%;
+  width: 35%;
+}
+.entry-content .wp-block-media-text.has-media-on-the-right .wp-block-media-text__media {
+  left: 50%;
+  order: 2;
+}
+.entry-content .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+  left: 15%;
+  order: 1;
+}
+.entry-content .wp-block-media-text.has-media-on-the-left .wp-block-media-text__media {
+  order: 1;
+}
+.entry-content .wp-block-media-text.has-media-on-the-left .wp-block-media-text__content {
+  order: 2;
 }
 
 .grid-items {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20vw;
+  width: 80%;
+  margin: 20vw auto 0;
 }
-.grid-items article.item {
+.grid-items article.item:nth-child(odd) {
+  margin: -20vw 0 0;
+}
+
+article.item {
   width: 50%;
   height: 40vw;
   position: relative;
@@ -167,10 +313,7 @@ blockquote {
   /**/
   margin: 0 0 0;
 }
-.grid-items article.item:nth-child(odd) {
-  margin: -20vw 0 0;
-}
-.grid-items article.item header {
+article.item header {
   display: flex;
   align-items: center;
   width: 80%;
@@ -178,25 +321,45 @@ blockquote {
   z-index: 100;
   position: absolute;
 }
-.grid-items article.item header h2 {
+article.item header h2 {
   width: 100%;
   text-align: center;
 }
-.grid-items article.item .thumbnail {
+article.item:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30vw;
+  height: 30vw;
+  border: solid 1px white;
+  border-radius: 50%;
+}
+article.item .thumbnail {
   width: 25vw;
   height: 25vw;
   overflow: hidden;
   transform: rotate(45deg);
-  background: #FFF;
+  background: #141321;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-.grid-items article.item .thumbnail img {
+article.item .thumbnail img {
+  opacity: 0.7;
   position: absolute;
   transform: rotate(-45deg);
   width: 150%;
   height: auto;
+}
+
+footer#site-footer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

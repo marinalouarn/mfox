@@ -18,9 +18,5 @@
 
 	<div class="thumbnail">
 	<?php the_post_thumbnail( 'large' );  ?>
-	</div>
-	
-	
-
-	
+	</div>	
 </article><!-- #post-<?php the_ID(); ?> -->

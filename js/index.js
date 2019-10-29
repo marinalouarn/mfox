@@ -24,10 +24,10 @@ function scrollEvent() {
             e = n.height(),
             i = n.offset();
         if (i.top >= o - (e / 2) && i.top <= o + t - (e / 2)) {
-            n.removeClass("onScroll");
+            n.removeClass("outScroll");
             n.trigger('play');
         } else {
-            n.addClass("onScroll");
+            n.addClass("outScroll");
             n.trigger('pause');
         }
     });

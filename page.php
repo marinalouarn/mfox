@@ -13,9 +13,21 @@
  */
 
 get_header();
+
+
 ?>
 
+
+	<header class="page-header scroll" style="background-image:url('<?php the_field( 'background' ); ?>');">
+		<div>
+			<div>
+			<h1><?php the_title(); ?></h1>
+			<?php the_excerpt(); ?>
+			</div>
+		</div>
+	</header><!-- .page-header -->
 	
+
 
 	<div id="primary" class="content-area">
 
@@ -35,5 +47,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

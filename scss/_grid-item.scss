@@ -1,8 +1,15 @@
 .grid-items{
 	display:flex;
 	flex-wrap:wrap;
-	margin-top:20vw;
+	width:80%;
+	margin:20vw auto 0;
 	article.item{
+		&:nth-child(odd){
+			margin:-20vw 0 0;
+		}
+	}
+}
+article.item{
 		width:50%;
 		height:40vw;
 
@@ -12,9 +19,6 @@
 		justify-content:center;
 		/**/
 		margin:0 0 0;
-		&:nth-child(odd){
-			margin:-20vw 0 0;
-		}
 		header{
 			display:flex;
 			align-items:center;
@@ -28,23 +32,34 @@
 				text-align: center;
 			}
 		}
+		&:after{
+				content:"";
+				display:block;
+				position:absolute;
+				top:50%;
+				transform:translateY(-50%);
+				width:30vw;
+				height:30vw;
+				border:solid 1px white;
+				border-radius:50%;
+			}
 		.thumbnail{
 			width:25vw;
 			height:25vw;
 			overflow:hidden;
 			transform:rotate(45deg);
-			background:#FFF;
+			background:$background;
 			display:flex;
 			align-items:center;
 			justify-content:center;
+			position:relative;
+			
 			img{
+				opacity:.7;
 				position:absolute;
-
 				transform:rotate(-45deg);
 				width:150%;
 				height:auto;
 			}
 		}
 	}
-
-}

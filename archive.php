@@ -8,18 +8,34 @@
  */
 
 get_header();
+
+
+$categories = get_the_category();
+$category_id = $categories[0]->cat_ID;
+$post_id = "category_" . $cat ;
+
 ?>
 
 	
 
 	<div id="primary" class="content-area">
 
-		<header class="page-header">
+		<header class="page-header scroll" style="background-image:url('<?php the_field( 'background', $post_id ); ?>');">
 
 			<div>
+				<?php 
+$value = get_field( "header", $post_id );
+
+if( $value ) {
+    ?> <img src="<?php the_field( 'header', $post_id ); ?>"/> <?php
+} else {
+    echo 'empty';
+} ?>
+				<div>
 				<h1><?php single_term_title(); ?></h1>
-				<?php the_archive_description( '<div class="description">', '</div>' );
+				<?php the_archive_description( '<p>', '</p>' );
 				?>
+				</div>
 			</div>
 		</header><!-- .page-header -->
 
@@ -55,5 +71,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+
 get_footer();
