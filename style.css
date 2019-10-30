@@ -43,7 +43,6 @@ h1 {
   list-style: none;
 }
 #site-navigation ul li {
-  counter-increment: chap;
   position: fixed;
   z-index: 1000;
   width: 7.5vw;
@@ -56,10 +55,7 @@ h1 {
   border: solid 2px #7d79cc;
 }
 #site-navigation ul li.current a img {
-  opacity: 0;
-}
-#site-navigation ul li.current a:after {
-  color: #7d79cc;
+  opacity: 0.5;
 }
 #site-navigation ul li a {
   line-height: 0;
@@ -72,31 +68,13 @@ h1 {
   border: solid 2px #fad88e;
   position: relative;
 }
-#site-navigation ul li a:after {
-  font-weight: bold;
-  color: #fad88e;
-  content: "Ch. " counter(chap);
-  line-height: 1.5em;
-  position: absolute;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #site-navigation ul li a:hover {
-  width: 5vw;
-  height: 5vw;
   border: solid 2px #7d79cc;
 }
 #site-navigation ul li a:hover img {
   opacity: 0.3;
 }
 #site-navigation ul li a img {
-  display: none;
   width: 100%;
   height: auto;
 }
