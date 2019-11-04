@@ -28,9 +28,7 @@
 	
 
 	<header id="masthead" class="site-header">
-		<div id="site-branding">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-		</div><!-- .site-branding -->
+		
 
 		<nav id="border-nav">
 			<ul>

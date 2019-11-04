@@ -29,7 +29,7 @@ get_header();
 	
 
 
-	<div id="primary" class="content-area">
+	
 
 
 		<?php
@@ -43,8 +43,6 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
-
-	</div><!-- #primary -->
 
 <?php
 get_footer();

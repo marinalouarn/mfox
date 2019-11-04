@@ -9,11 +9,11 @@
 
 ?>
 
-<div class="entry-content">
+<div class="contenus">
 		<?php
 		the_content();
 
 		?>
-</div><!-- .entry-content -->
+</div><!-- .contenus -->
 	
 

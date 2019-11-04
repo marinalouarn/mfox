@@ -9,18 +9,25 @@
 
 get_header();
 ?>
-	<div id="primary" class="content-area">
+<header class="page-header">
+<?php
+        the_title( '<h1 class="entry-title">', '</h1>' );
+        the_excerpt();
+        ?>
 
-		<?php
+</header>
+	<div id="" class="contenus contenus-projet">
+<?php 
 		while ( have_posts() ) :
 			the_post();
-
-			the_title( '<h1 class="entry-title">', '</h1>' );
+        
+            
 
 			the_content();
 
 		endwhile; // End of the loop.
-		?>
+		?></div>
+
 
 
 		<footer>
@@ -54,7 +61,7 @@ if ( $nextid ) {
 		</footer>
 
 
-	</div><!-- #primary -->
+
 
 <?php
 get_footer();
