@@ -10,10 +10,15 @@
 get_header();
 ?>
 <header class="page-header">
-<?php
+
+
+        <div class="thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url('', $size = 'large'); ?>');"></div>
+        <div>
+        <?php 
         the_title( '<h1 class="entry-title">', '</h1>' );
         the_excerpt();
         ?>
+    </div>
 
 </header>
 	<div id="" class="contenus contenus-projet">
@@ -30,7 +35,7 @@ get_header();
 
 
 
-		<footer>
+		<footer class="prev-next">
 <?php
 $post_id = $post->ID; // current post ID
 $cat = get_the_category(); 
