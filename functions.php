@@ -102,6 +102,37 @@ function m_fox_widgets_init() {
 }
 add_action( 'widgets_init', 'm_fox_widgets_init' );
 
+/* RENOMAGE DES ARTICLES PAR DÉFAUT EN -> PROJETS */
+
+function revcon_change_post_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Projets';
+    $submenu['edit.php'][5][0] = 'Projets';
+    $submenu['edit.php'][10][0] = 'Ajouter un projet';
+    $submenu['edit.php'][16][0] = 'Tags';
+}
+function revcon_change_post_object() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Projets';
+    $labels->singular_name = 'Projets';
+    $labels->add_new = 'Ajouter un projet';
+    $labels->add_new_item = 'Ajouter un projet';
+    $labels->edit_item = 'Editer';
+    $labels->new_item = 'Projets';
+    $labels->view_item = 'Voir le projets';
+    $labels->search_items = 'Rechercher';
+    $labels->not_found = 'Non rien de rien';
+    $labels->not_found_in_trash = 'La corbeille est vide de chez vide';
+    $labels->all_items = 'Tout les projets';
+    $labels->menu_name = 'Projets';
+    $labels->name_admin_bar = 'Projets';
+}
+ 
+add_action( 'admin_menu', 'revcon_change_post_label' );
+add_action( 'init', 'revcon_change_post_object' );
+
 /**
  * Enqueue scripts and styles.
  */
@@ -135,4 +166,5 @@ add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css' );
 
 
 
+/* CRÉATION DU TYPE DE CONTENU 'JOYEUX BORDEL' */
 

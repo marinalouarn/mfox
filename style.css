@@ -1,4 +1,17 @@
 @charset "UTF-8";
+/*
+Theme Name: Mfox
+Theme URI: https://mfox.fr
+Author: krikrak
+Author URI: https://krikrak.fr
+Description: Portfolio de Marina
+Requires at least: WordPress 4.9.6
+Version: 1
+License URI: LICENSE
+Text Domain: twentynineteen
+
+*/ 
+
 body {
   background: #141321;
   color: #fff;
